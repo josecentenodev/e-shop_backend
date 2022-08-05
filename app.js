@@ -4,6 +4,7 @@ const morgan = require('morgan')
 const app = express();
 const api = process.env.API_URL;
 const DB_CONNECTION = process.env.DB_CONNECTION;
+const PORT = process.env.PORT || 3000
 const mongoose = require('mongoose');
 const productsRouter = require('./routes/products')
 const categoriesRouter = require('./routes/categories')
@@ -37,7 +38,8 @@ mongoose.connect(DB_CONNECTION)
         console.log(err)
     })
 
-app.listen(3000, ()=>{
-    console.log(`server runnning http://localhost:3000${api}`);
+
+app.listen(PORT, ()=>{
+    console.log(`server runnning http://localhost:${PORT}${api}`);
 })
 
